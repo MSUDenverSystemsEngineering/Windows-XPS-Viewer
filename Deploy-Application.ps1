@@ -65,15 +65,15 @@ Try {
 	##* VARIABLE DECLARATION
 	##*===============================================
 	## Variables: Application
-	[string]$appVendor = ''
-	[string]$appName = ''
+	[string]$appVendor = 'Microsoft'
+	[string]$appName = 'XPS Viewer'
 	[string]$appVersion = ''
 	[string]$appArch = ''
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '1.0.0'
-	[string]$appScriptDate = 'XX/XX/202X'
-	[string]$appScriptAuthor = '<author name>'
+	[string]$appScriptDate = '04/14/2021'
+	[string]$appScriptAuthor = 'James Hardy'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
 	[string]$installName = ''
@@ -141,7 +141,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-
+		Get-WindowsCapability -Online | Where-Object name -like xps* | Add-WindowsCapability -Online
 
 		##*===============================================
 		##* POST-INSTALLATION
